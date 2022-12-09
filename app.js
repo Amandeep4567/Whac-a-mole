@@ -9,7 +9,7 @@ const again = document.querySelector("button");
 
 let result = 0;
 let hitPosition;
-let currentTime = 20;
+let currentTime = 30;
 let timerId = null;
 
 function randomSquare() {
@@ -33,19 +33,24 @@ squares.forEach((square) => {
   });
 });
 
+// function moveMole() {
+//   console.log(currentTime);
+//   if (currentTime <= currentTime / 2) {
+//     timerId = setInterval(randomSquare, 500);
+//   } else {
+//     timerId = setInterval(randomSquare, 1000);
+//   }
+// }
+// moveMole();
+
 function moveMole() {
-  if (currentTime <= currentTime / 2) {
-    timerId = setInterval(randomSquare, 500);
-  } else {
-    timerId = setInterval(randomSquare, 1000);
-  }
+  timerId = setInterval(randomSquare, 500);
 }
 moveMole();
 
 function countDown() {
   currentTime--;
   timeLeft.textContent = currentTime;
-
   if (currentTime == 0) {
     clearInterval(countDownTimerId);
     clearInterval(timerId);
